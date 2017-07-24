@@ -7,6 +7,8 @@ A basic interactive linux shell
 pip install prompt-toolkit
 
 Commands i-linux:
+
+
 sh: Takes a File name and displays the file content to the user.
 
 cl: Clears the Terminal
