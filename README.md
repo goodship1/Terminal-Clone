@@ -27,8 +27,7 @@ bll: lists current working directory permissions
 
 
 
-
-
-
 #how to use
+
+
 cd into i-linuxShell dir and sudo chmod +x main.py
