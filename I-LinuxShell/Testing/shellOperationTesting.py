@@ -27,7 +27,7 @@ class ShellOperations(cmd.Cmd ,object):
 		empty = ['']
 		return line == empty[0]
 	
-	def _formattingCurrentWorkingDirectory(self):
+	def formattingCurrentWorkingDirectory(self):
 		files = self._current_return()
 		files = files.split('/')
 		files.remove(files[0])
@@ -35,17 +35,20 @@ class ShellOperations(cmd.Cmd ,object):
 		
 	def do_cdir(self,line):
 		""" cdir changes the file directory"""
-		files = self._formattingCurrentWorkingDirectory()
-		if(self._checkiflineisEmpty(line)):#if line is empty line 
+		files = os.getcwd()
+		files = files.split('/')
+		files = files.remove(files[0])
+		if(self.checkiflineisEmpty(line)):#if line is empty line 
 			try:
 				raise Exception(self._e.empty_line())
 			except Exception as err:
-				print self._e.empty_line()
+				return self._e.empty_line()
 		elif(line in files)and(self._current_return()!=line):
 				while(True):
 					self.do_bdir(line)#call to do_bdir(line)
 					if(line==line):
-							break
+						return line
+						break
 		elif(line not in files):
 			try:
 				os.chdir(line)#change file directory
@@ -57,7 +60,7 @@ class ShellOperations(cmd.Cmd ,object):
 		""" funcution to check if in home directory"""
 		return os.getcwd()=="home"	
 	
-	def _checkIfFile(self,line):
+	def checkIfFile(self,line):
 		return os.path.isfile(line)
 		
 	def _current_return(self):
@@ -155,16 +158,16 @@ class ShellOperations(cmd.Cmd ,object):
 	def do_cw(self,line):
 		""" cw counts words of a file"""
 		count = 0#count variable
-		if(self._checkIfFile(line)):#checks if line is a file
+		if(self.checkIfFile(line)):#checks if line is a file
 			files = open(line).read()#opens line file for read
 			for x in files.split():#splits at whitespaces
 				count+=1#increments count by each iteration
-			print count #prints count
+			return count #prints count
 		else:
 			try:
 				raise Exception(self._e.not_file())#raise not file exception 
 			except Exception as err:#catch error
-				print self._e.not_file()#prints error in terminal
+				return self._e.not_file()#prints error in terminal
 	
 
 	
