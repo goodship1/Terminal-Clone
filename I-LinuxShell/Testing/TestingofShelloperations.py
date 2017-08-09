@@ -1,6 +1,17 @@
+import pytest
 from shellOperationTesting import ShellOperations
-import os
-import unittest
+import os 
 
-class testingForshellFunctions(unit.test.testcase):
-	pass
+shell  = ShellOperations()
+
+def testingchecklineisEmpty():
+	line = " "
+	shell.checkiflineisEmpty(line)==True
+
+	
+def testingformatCurrentWorkingDirectory():
+	Files = os.getcwd()
+	Files = Files.split('/')
+	Files.remove(Files[0])
+	assert Files ==  shell.formattingCurrentWorkingDirectory()
+	
