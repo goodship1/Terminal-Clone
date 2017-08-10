@@ -10,7 +10,7 @@ from  subprocess import check_output
 class ShellOperations(cmd.Cmd ,object):
 	
 	def __init__(self):
-		self._e = Errors()#instance of errors
+		self.e = Errors()#instance of errors
 			
 	
 	def do_cur(self,line):
@@ -28,7 +28,7 @@ class ShellOperations(cmd.Cmd ,object):
 		return line == empty[0]
 	
 	def formattingCurrentWorkingDirectory(self):
-		files = self._current_return()
+		files = self.current_return()
 		files = files.split('/')
 		files.remove(files[0])
 		return files
@@ -40,10 +40,11 @@ class ShellOperations(cmd.Cmd ,object):
 		files = files.remove(files[0])
 		if(self.checkiflineisEmpty(line)):#if line is empty line 
 			try:
-				raise Exception(self._e.empty_line())
+				raise Exception(self.e.empty_line())
 			except Exception as err:
-				return self._e.empty_line()
-		elif(line in files)and(self._current_return()!=line):
+				return self.e.empty_line()
+				return True
+		elif(line in files):
 				while(True):
 					self.do_bdir(line)#call to do_bdir(line)
 					if(line==line):
@@ -53,7 +54,7 @@ class ShellOperations(cmd.Cmd ,object):
 			try:
 				os.chdir(line)#change file directory
 			except Exception as err:
-				print self._e.no_directory_found()#print exception
+				print self.e.no_directory_found()#print exception
 	
 			
 	def get_home(self):
@@ -63,7 +64,7 @@ class ShellOperations(cmd.Cmd ,object):
 	def checkIfFile(self,line):
 		return os.path.isfile(line)
 		
-	def _current_return(self):
+	def current_return(self):
 		""" returns current directory
 		function used to get back to home"""
 		return os.getcwd()
@@ -71,7 +72,9 @@ class ShellOperations(cmd.Cmd ,object):
 	
 	def do_h(self,line):
 		""" h gets to home directory"""
-		files = self._formattingCurrentWorkingDirectory()
+		files = os.getcwd()
+		files  =  files.split('/')
+		files.remove(files[0])
 		find  = files.index('home')#find the index value of home
 		counter = len(files)
 		while(True):#while true
@@ -79,36 +82,40 @@ class ShellOperations(cmd.Cmd ,object):
 			counter-=1#decerement count by one each time
 			if(counter==find):
 				break
-		self.do_cdir('home')#changes the directory
+		os.chdir('home')#changes the directory
+		return True
+	
 	def do_get(self,line):
 		""" get packages"""
-		if(self._checkiflineisEmpty(line)):#if line is empty 
+		if(self.checkiflineisEmpty(line)):#if line is empty 
 			try:
 				raise Exception(self._e.empty_line())
 			except Exception as err:
-				print self._e.empty_line()
-		if(self._checkiflineisEmpty(line)==False):#if true
+				return self.e.empty_line()
+		if(self.checkiflineisEmpty(line)==False):#if true
 			try:
 				connection = check_output("ping -c 1 www.google.com",shell=True)
-				if(line  == "update"):#checks if line is update then update
+				if(line=="update"):#checks if line is update then update
 					os.system("sudo apt-get update")
+					return True
 				else:# else try install line 
 					os.system("sudo apt-get install %s"%line)
+					return True
 			except subprocess.CalledProcessError as  err:
-				print err
+				return err
 		
 	def do_cw(self,line,lineTwo):
-		if(self._checkIfFile(line)):#checks if line is a file
+		if(self.checkIfFile(line)):#checks if line is a file
 			File = open(line).read()#opens file for read
 			File = File.splitlines()#splits files at new lines
 			count  = len(File)#counts len of file
-			print count
+			return count
 		else:
 			#error handling if line is not a file
 			try:
-				raise Exception(self._e.not_file())
+				raise Exception(self.e.not_file())
 			except Exception as Err:
-				print Err
+				return Err
 			
 	
 	def do_cl(self): 
@@ -146,14 +153,15 @@ class ShellOperations(cmd.Cmd ,object):
 				
 	def do_show(self,line):
 		""" show files to user press Q to leave"""
-		if(self._checkIfFile(line)):#checks if line is a file
+		if(self.checkIfFile(line)):#checks if line is a file
 			File = open(line).read()#opens and reads files 
 			os.system('less %s'%line)#calls the less linux command
+			return True
 		else:#else throw error 
 			try:
 				raise Exception(self._e.not_file())
 			except Exception as err:
-				print self._e.not_file() 
+				return self.e.not_file() 
 				
 	def do_cw(self,line):
 		""" cw counts words of a file"""
@@ -167,7 +175,7 @@ class ShellOperations(cmd.Cmd ,object):
 			try:
 				raise Exception(self._e.not_file())#raise not file exception 
 			except Exception as err:#catch error
-				return self._e.not_file()#prints error in terminal
+				return self.e.not_file()#prints error in terminal
 	
 
 	
