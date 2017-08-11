@@ -10,7 +10,7 @@ from  subprocess import check_output
 class ShellOperations(cmd.Cmd ,object):
 	
 	def __init__(self):
-		self.e = Errors()#instance of errors
+		self._e = Errors()#instance of errors
 			
 	
 	def do_cur(self,line):
@@ -44,7 +44,7 @@ class ShellOperations(cmd.Cmd ,object):
 			except Exception as err:
 				return self.e.empty_line()
 				return True
-		elif(line in files):
+		elif(line in files)and(os.getcwd()!=line):
 				while(True):
 					self.do_bdir(line)#call to do_bdir(line)
 					if(line==line):
@@ -91,7 +91,7 @@ class ShellOperations(cmd.Cmd ,object):
 			try:
 				raise Exception(self._e.empty_line())
 			except Exception as err:
-				return self.e.empty_line()
+				return self._e.empty_line()
 		if(self.checkiflineisEmpty(line)==False):#if true
 			try:
 				connection = check_output("ping -c 1 www.google.com",shell=True)
@@ -161,7 +161,7 @@ class ShellOperations(cmd.Cmd ,object):
 			try:
 				raise Exception(self._e.not_file())
 			except Exception as err:
-				return self.e.not_file() 
+				return self._e.not_file() 
 				
 	def do_cw(self,line):
 		""" cw counts words of a file"""
@@ -175,7 +175,7 @@ class ShellOperations(cmd.Cmd ,object):
 			try:
 				raise Exception(self._e.not_file())#raise not file exception 
 			except Exception as err:#catch error
-				return self.e.not_file()#prints error in terminal
+				return self._e.not_file()#prints error in terminal
 	
 
 	
