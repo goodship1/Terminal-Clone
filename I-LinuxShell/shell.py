@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from prompt_toolkit import prompt
 from shellFuncutions import ShellOperations
 import cmd
-import os 
 
 
 class InteractiveShell(cmd.Cmd,object):
@@ -18,13 +17,16 @@ class InteractiveShell(cmd.Cmd,object):
 		self.op = ShellOperations()
 		line = ""
 		operators = ["+","-","*",'**','<',">"]
+		store = []
 		returnShellMethods = {"tod":self.op.do_tod()}
 		listofprintMethods = ["bll","h","cur","bdir","blue","bl","sh",'wc','get','cwl','cdir']
 		while(True):#excute while True
 			enter_commands = prompt(">>")
+			store = enter_commands
+			store = store.split(" ")
 			if(enter_commands in returnShellMethods.keys()):
 				print(returnShellMethods[enter_commands])
-			if(enter_commands not in returnShellMethods.keys())and(enter_commands not in listofprintMethods):
+			if(enter_commands not in returnShellMethods.keys())and(enter_commands not in listofprintMethods)and(store[0] not in listofprintMethods):
 				try:
 					exec(enter_commands)
 				except Exception as Err:
@@ -63,5 +65,9 @@ class InteractiveShell(cmd.Cmd,object):
 			if(enter_commands == "cdir")and(enter_commands in listofprintMethods):
 				File = raw_input("enter directory :")
 				self.op.do_cdir(File)
+			if(store[0] == "cdir")and(store[0] in listofprintMethods):
+				try:
+					self.op.do_cdir(store[1])
+				except Exception as err:
+					self.op.do_cdir("")
 
-interacive = InteractiveShell()
