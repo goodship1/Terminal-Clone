@@ -20,6 +20,7 @@ class InteractiveShell(cmd.Cmd,object):
 		store = []
 		returnShellMethods = {"tod":self.op.do_tod()}
 		listofprintMethods = ["bll","h","cur","bdir","blue","bl","sh",'wc','get','cwl','cdir']
+		
 		while(True):#excute while True
 			enter_commands = prompt(">>")
 			store = enter_commands
@@ -50,21 +51,24 @@ class InteractiveShell(cmd.Cmd,object):
 				self.op.do_bdir(line)
 			if(enter_commands =='bl')and(enter_commands in listofprintMethods):
 				self.op.do_bl(line)
-			if(enter_commands  == "sh")and(enter_commands in listofprintMethods):
-				File = raw_input("enter file name: ")
-				self.op.do_show(File)
-			if(enter_commands == "wc") and(enter_commands in listofprintMethods):
-				File = raw_input("enter file name :")
-				self.op.do_cw(File)
+			if(store[0]  == "sh")and(store[0] in listofprintMethods):
+				try:
+					self.op.do_show(store[1])
+				except Exception as err:
+					self.op.do_show("")	
+			if(store[0] == "wc") and(store[0] in listofprintMethods):
+				try:
+					self.op.do_cw(store[1])
+				except Exception as err:
+					self.op.do_cw("")
 			if(enter_commands == 'get')and(enter_commands in listofprintMethods):
 				File = raw_input("enter software to get: ")
 				self.op.do_get(File)
-			if(enter_commands =="cwl") and(enter_commands in listofprintMethods):
-				File = raw_input("enter file name :")
-				self.op.do_cwl(File)
-			if(enter_commands == "cdir")and(enter_commands in listofprintMethods):
-				File = raw_input("enter directory :")
-				self.op.do_cdir(File)
+			if(store[0] =="cwl") and(store[0] in listofprintMethods):
+				try:
+					self.op.do_cwl(store[1])
+				except Exception as err:
+					self.op.do_cwl("")
 			if(store[0] == "cdir")and(store[0] in listofprintMethods):
 				try:
 					self.op.do_cdir(store[1])
