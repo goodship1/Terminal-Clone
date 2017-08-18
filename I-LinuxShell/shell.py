@@ -19,7 +19,7 @@ class InteractiveShell(cmd.Cmd,object):
 		operators = ["+","-","*",'**','<',">"]
 		store = []
 		returnShellMethods = {"tod":self.op.do_tod()}
-		listofprintMethods = ["bll","h","cur","bdir","blue","bl","sh",'wc','get','cwl','cdir']
+		listofprintMethods = ["bll","h","cur","bdir","blue","bl","sh",'wc','get','cwl','cdir','man']
 		
 		while(True):#excute while True
 			enter_commands = prompt(">>")
@@ -61,9 +61,12 @@ class InteractiveShell(cmd.Cmd,object):
 					self.op.do_cw(store[1])
 				except Exception as err:
 					self.op.do_cw("")
-			if(enter_commands == 'get')and(enter_commands in listofprintMethods):
-				File = raw_input("enter software to get: ")
-				self.op.do_get(File)
+			if(store[0] == 'get')and(store[0] in listofprintMethods):
+				try:
+					self.op.do_get(store[1])
+				except Exception as err:
+					self.op.do_get("")
+
 			if(store[0] =="cwl") and(store[0] in listofprintMethods):
 				try:
 					self.op.do_cwl(store[1])
@@ -74,4 +77,3 @@ class InteractiveShell(cmd.Cmd,object):
 					self.op.do_cdir(store[1])
 				except Exception as err:
 					self.op.do_cdir("")
-
