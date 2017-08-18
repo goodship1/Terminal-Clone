@@ -36,21 +36,24 @@ class ShellOperations(cmd.Cmd ,object):
 	def do_cdir(self,line):
 		""" cdir changes the file directory"""
 		files = self._formattingCurrentWorkingDirectory()
-		if(self._checkiflineisEmpty(line)):#if line is empty line 
+		count = len(files)-1
+		if(self._checkiflineisEmpty(line)):
 			try:
 				raise Exception(self._e.empty_line())
 			except Exception as err:
-				print self._e.empty_line()
-		elif(line in files)and(self._current_return()!=line):
-				while(True):
-					self.do_bdir(line)#call to do_bdir(line)
-					if(line==line):
-							break
+				print(self._e.empty_line())
+		elif(line in  files):
+			while(True):
+				self.do_bdir(line)
+				count-=1
+				find  = files.index(line)
+				if(find == count):
+					break
 		elif(line not in files):
 			try:
-				os.chdir(line)#change file directory
+				os.chdir(line)
 			except Exception as err:
-				print self._e.no_directory_found()#print exception
+				print(self._e.no_directory_found())
 	
 			
 	def get_home(self):
@@ -77,6 +80,7 @@ class ShellOperations(cmd.Cmd ,object):
 			if(counter==find):
 				break
 		self.do_cdir('home')#changes the directory
+	
 	def do_get(self,line):
 		""" get packages"""
 		if(self._checkiflineisEmpty(line)):#if line is empty 
