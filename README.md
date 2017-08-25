@@ -1,4 +1,4 @@
-# i-linux
+# I-linux
 basic interactive linux shell
 
 #Requirements
