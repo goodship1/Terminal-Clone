@@ -157,6 +157,10 @@ class ShellOperations(cmd.Cmd ,object):
 			except Exception as err:
 				print self._e.not_file() 
 				
+	def do_process(self,line):
+		print(os.system("-ps"))
+		
+				
 	def do_cw(self,line):
 		""" cw counts words of a file"""
 		count = 0#count variable
