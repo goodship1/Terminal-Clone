@@ -2,8 +2,6 @@
 from __future__ import unicode_literals
 from prompt_toolkit import prompt
 from shellFuncutions import ShellOperations
-from prompt_toolkit.key_binding.defaults import load_key_bindings_for_prompt
-from prompt_toolkit.keys import Keys
 import cmd
 
 
