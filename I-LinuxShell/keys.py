@@ -4,4 +4,6 @@ from prompt_toolkit.keys import Keys
 class  _Keybindings(object):
     register = load_key_bindings_for_prompt()
     
-  
+  @register.add_bindings(Keys.H)
+  def _(event):
+        pass
