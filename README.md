@@ -29,3 +29,5 @@ bl  : list current working directory files
 
 bll : list current working directory with all file permissions
 
+![alt Text](https://user-images.githubusercontent.com/10147276/31141712-06b2dd08-a870-11e7-9818-90274691250b.gif)
+
