@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 from prompt_toolkit import prompt
 from shellFuncutions import ShellOperations
+from prompt_toolkit.history import InMemoryHistory
+
 import cmd
 
 
@@ -17,13 +19,14 @@ class InteractiveShell(cmd.Cmd,object):
 		variables = dict()
 		self.op = ShellOperations()
 		line = ""
+		input_History = InMemoryHistory()
 		operators = ["+","-","*",'**','<',">"]
 		store = []
 		returnShellMethods = {"tod":self.op.do_tod()}
 		listofprintMethods = ["bll","h","cur","bdir","blue","bl","sh",'wc','get','cwl','cdir','man']
 		
 		while(True):#excute while True
-			enter_commands = prompt(">>")
+			enter_commands = prompt(">>",history=input_History)
 			store = enter_commands
 			store = store.split(" ")
 			if(enter_commands in returnShellMethods.keys()):
