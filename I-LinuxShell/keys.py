@@ -14,5 +14,5 @@ class KeyBindings(object):
 	@register.add_binding(keys.ControlC)
 	def _(event):
 		""" control c gets current working directory"""
-		pass
+		event.cli.current_buffer.insert_text(os.getcwd())
 	
