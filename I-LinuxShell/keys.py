@@ -11,3 +11,8 @@ class KeyBindings(object):
         """control E exits the shell"""
 		event.cli.run_in_terminal(os._exit(0))
 	
+	@register.add_binding(keys.ControlC)
+	def _(event):
+		""" control c gets current working directory"""
+		pass
+	
