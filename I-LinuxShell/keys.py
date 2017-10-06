@@ -18,7 +18,7 @@ class KeyBindings(object):
 	
 	@register.add_binding(Keys.ControlD)
 	def _(event):
-		"""short for change directory"""
+		"""control-D for change directory"""
 		event.cli.current_buffer.insert_text("cdir")
 	
 	
