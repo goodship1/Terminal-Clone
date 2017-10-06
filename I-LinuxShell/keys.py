@@ -23,7 +23,7 @@ class KeyBindings(object):
 	
 	@register.add_binding(Keys.ControlH)
 	def _(event):
-		event.cli.current_buffer.insert("h")
+		event.cli.current_buffer.insert_text("h")
 	
 	
 	
