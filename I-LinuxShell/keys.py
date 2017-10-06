@@ -16,3 +16,10 @@ class KeyBindings(object):
 		""" control c gets current working directory"""
 		event.cli.current_buffer.insert_text(os.getcwd())
 	
+	@register.add_binding(Keys.ControlD)
+	def _(event):
+		"""short for change directory"""
+		event.cli.current_buffer.insert_text("cdir")
+	
+	
+	
