@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 from prompt_toolkit import prompt
 from shellFuncutions import ShellOperations
 from prompt_toolkit.history import InMemoryHistory
-
+from prompt_toolkit.contrib.completers import WordCompleter
+from keys import KeyBindings
 import cmd
 
 
@@ -18,15 +19,17 @@ class InteractiveShell(cmd.Cmd,object):
 		""" interactive shell"""
 		variables = dict()
 		self.op = ShellOperations()
+		self.bindings = KeyBindings() 
 		line = ""
 		input_History = InMemoryHistory()
 		operators = ["+","-","*",'**','<',">"]
-		store = []
 		returnShellMethods = {"tod":self.op.do_tod()}
-		listofprintMethods = ["bll","h","cur","bdir","blue","bl","sh",'wc','get','cwl','cdir','man']
+		listofprintMethods = ["bll","h","cur","bdir","bl","sh",'wc','get','cwl','cdir','man']
+		word_list = WordCompleter(listofprintMethods)
+		
 		
 		while(True):#excute while True
-			enter_commands = prompt(">>",history=input_History)
+			enter_commands = prompt(">>",history=input_History,key_bindings_registry=self.bindings.register,completer=word_list)
 			store = enter_commands
 			store = store.split(" ")
 			if(enter_commands in returnShellMethods.keys()):
