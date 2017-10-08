@@ -1,10 +1,6 @@
 # I-linux
 Basic interactive Linux Shell implemented with prompt-toolkit
 
-#Software Dependencies
-
- prompt-toolkit
-
 Commands i-linux:
 Allows for variable assignment and execution of Python code:
 
