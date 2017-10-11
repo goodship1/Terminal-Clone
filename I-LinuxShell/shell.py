@@ -25,11 +25,11 @@ class InteractiveShell(cmd.Cmd,object):
 		operators = ["+","-","*",'**','<',">"]
 		returnShellMethods = {"tod":self.op.do_tod()}
 		listofprintMethods = ["bll","h","cur","bdir","bl","sh",'wc','get','cwl','cdir','man']
-		word_list = WordCompleter(listofprintMethods)
+		linux_Commands = WordCompleter(listofprintMethods)
 		
 		
 		while(True):#excute while True
-			enter_commands = prompt(">>",history=input_History,key_bindings_registry=self.bindings.register,completer=word_list)
+			enter_commands = prompt(">>",history=input_History,key_bindings_registry=self.bindings.register,completer=linux_Commands,mouse_support = True)
 			store = enter_commands
 			store = store.split(" ")
 			if(enter_commands in returnShellMethods.keys()):
