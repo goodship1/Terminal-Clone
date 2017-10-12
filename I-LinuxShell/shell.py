@@ -13,6 +13,9 @@ class InteractiveShell(cmd.Cmd,object):
 	
 	def __init__(self):
 		self.interactive()
+	
+	def get_title(self):
+		return "i-linux"
 
 
 	def interactive(self):
@@ -29,7 +32,7 @@ class InteractiveShell(cmd.Cmd,object):
 		
 		
 		while(True):#excute while True
-			enter_commands = prompt(">>",history=input_History,key_bindings_registry=self.bindings.register,completer=linux_Commands,mouse_support = True)
+			enter_commands = prompt(">>",history=input_History,key_bindings_registry=self.bindings.register,completer=linux_Commands,mouse_support = True,get_title = self.get_title())
 			store = enter_commands
 			store = store.split(" ")
 			if(enter_commands in returnShellMethods.keys()):
