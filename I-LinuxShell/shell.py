@@ -1,11 +1,12 @@
 """ imports"""
 from __future__ import unicode_literals
+import cmd
 from prompt_toolkit import prompt
 from shellFuncutions import ShellOperations
 from prompt_toolkit.history import InMemoryHistory
 from prompt_toolkit.contrib.completers import WordCompleter
 from keys import KeyBindings
-import cmd
+from toolbar import ToolBar
 
 
 
@@ -24,6 +25,7 @@ class InteractiveShell(cmd.Cmd,object):
 		self.op = ShellOperations()
 		self.bindings = KeyBindings() 
 		line = ""
+		self.toolBar = ToolBar()
 		input_History = InMemoryHistory()
 		operators = ["+","-","*",'**','<',">"]
 		returnShellMethods = {"tod":self.op.do_tod()}
@@ -32,7 +34,7 @@ class InteractiveShell(cmd.Cmd,object):
 		
 		
 		while(True):#excute while True
-			enter_commands = prompt(">>",history=input_History,key_bindings_registry=self.bindings.register,completer=linux_Commands,mouse_support = True,get_title = self.get_title())
+			enter_commands = prompt(">>",history=input_History,key_bindings_registry=self.bindings.register,completer=linux_Commands,mouse_support = True,get_title = self.get_title,get_bottom_toolbar_tokens = self.toolBar.get_bottom_toolbar_tokens,style = self.toolBar.toolBarStyle)
 			store = enter_commands
 			store = store.split(" ")
 			if(enter_commands in returnShellMethods.keys()):
