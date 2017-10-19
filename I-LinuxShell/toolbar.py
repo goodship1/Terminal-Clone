@@ -1,7 +1,12 @@
 from prompt_toolkit.token import Token
+from prompt_toolkit.styles import style_from_dict
 
 
 class ToolBar(object):
     
+    toolBarStyle = style_from_dict({
+		Token.Toolbar: '#gggggg bg:#444444',
+		})
+    
     def get_bottom_toolbar_tokens(self,cli):
-      pass
+      return [(Token.Toolbar,"Control-S [SH]")]
