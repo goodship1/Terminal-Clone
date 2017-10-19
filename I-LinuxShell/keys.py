@@ -8,7 +8,6 @@ class KeyBindings(object):
 	
 	@register.add_binding(Keys.ControlE)
 	def _(event):
-        """control E exits the shell"""
 		event.cli.run_in_terminal(os._exit(0))
 	
 	@register.add_binding(Keys.ControlC)
@@ -23,8 +22,13 @@ class KeyBindings(object):
 	
 	@register.add_binding(Keys.ControlH)
 	def _(event):
+		"""short cut to home"""
 		event.cli.current_buffer.insert_text("h")
 	
+	@register.add_binding(Keys.ControlS)
+	def _(event):
+		"""short cut to sh"""
+		event.cli.current_buffer.insert_text('sh')
 	
 	
 	
