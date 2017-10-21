@@ -67,8 +67,13 @@ class ShellOperations(cmd.Cmd ,object):
 		""" returns current directory
 		function used to get back to home"""
 		return os.getcwd()
-	
+	#todo
 	def do_man(self,line):
+		"""for single commands"""
+		pass
+	#todo
+	def do_help(self,line):
+		"""for all commands"""
 		pass
 	
 	
