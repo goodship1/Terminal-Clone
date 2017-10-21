@@ -23,3 +23,6 @@ class Errors(Exception):
 	def no_package(self):
 		return "no package of the name"
 	
+	def no_command_found(self):
+		return "no command found"
+	
