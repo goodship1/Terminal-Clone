@@ -68,6 +68,9 @@ class ShellOperations(cmd.Cmd ,object):
 		function used to get back to home"""
 		return os.getcwd()
 	
+	def do_man(self,line):
+		pass
+	
 	
 	def do_h(self,line):
 		""" h gets to home directory"""
