@@ -1,27 +1,16 @@
-Commands for i-linux
+
 
 
 bl : Basic list command which shows the contents of the current working directory
-
 bll: Basic long list command whihc shows the contents of the current working directory with files permissions
-
 cur: Shows the current working directory
-
 tod: Shows the current date and time
-
 cdir : changes the directory
-
 h: Goes back to home directory
-
 get: Gets packages for example get update
-
-
 bdir: Goes backwards in working directory
-
 wc: Counts the words of a file : cw test.txt
-
 cwl: Counts the lines of a file : cwl test.txt
-
 sh : Shows the contents of a file : sh test.txt
 
 
