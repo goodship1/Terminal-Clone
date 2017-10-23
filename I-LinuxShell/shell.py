@@ -29,7 +29,7 @@ class InteractiveShell(cmd.Cmd,object):
 		input_History = InMemoryHistory()
 		operators = ["+","-","*",'**','<',">"]
 		returnShellMethods = {"tod":self.op.do_tod()}
-		listofprintMethods = ["bll","h","cur","bdir","bl","sh",'wc','get','cwl','cdir','man']
+		listofprintMethods = ["help","bll","h","cur","bdir","bl","sh",'wc','get','cwl','cdir','man']
 		linux_Commands = WordCompleter(listofprintMethods)
 		
 		
@@ -89,3 +89,8 @@ class InteractiveShell(cmd.Cmd,object):
 					self.op.do_cdir(store[1])
 				except Exception as err:
 					self.op.do_cdir("")
+			if(store[0] == "help")and(store[0] in listofprintMethods):
+				try:
+					self.op.do_help(store[1])
+				except Exeption as  err:
+					#self.op.do_help()
