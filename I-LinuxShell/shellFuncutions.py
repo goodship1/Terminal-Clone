@@ -68,13 +68,12 @@ class ShellOperations(cmd.Cmd ,object):
 		function used to get back to home"""
 		return os.getcwd()
 	#todo
-	def do_man(self,line):
-		"""for single commands"""
-		pass
-	#todo
 	def do_help(self,line):
-		"""for all commands"""
-		pass
+		File = open("Commands.txt","r")
+		if(line == "all"):
+			for infomration in File:
+				print(information)
+		
 	
 	
 	def do_h(self,line):
@@ -106,7 +105,7 @@ class ShellOperations(cmd.Cmd ,object):
 			except subprocess.CalledProcessError as  err:
 				print err
 		
-	def do_cw(self,line):
+	def do_cwl(self,line):
 		if(self._checkIfFile(line)):#checks if line is a file
 			File = open(line).read()#opens file for read
 			File = File.splitlines()#splits files at new lines
