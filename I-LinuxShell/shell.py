@@ -93,4 +93,4 @@ class InteractiveShell(cmd.Cmd,object):
 				try:
 					self.op.do_help(store[1])
 				except Exeption as  err:
-					#self.op.do_help()
+					print(err)
