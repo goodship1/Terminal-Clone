@@ -67,12 +67,36 @@ class ShellOperations(cmd.Cmd ,object):
 		""" returns current directory
 		function used to get back to home"""
 		return os.getcwd()
-	#todo
+	
+	
+	
+	def _commandsTxtStorage(self):
+		File = open("Commands.txt",'r')
+		commands = []
+		new_list = []
+		for information in File:
+			commands.append(information.split(':'))
+		for commands_information in commands:
+			for commands_Information in commands_information:
+				new_list.append(commands_Information)
+		return  new_list
+	
+	
+	
+	
 	def do_help(self,line):
 		File = open("Commands.txt","r")
+		commands = self._commandsTxtStorage()
+		find = int 
 		if(line == "all"):
-			for infomration in File:
-				print(information)
+			for information in File:
+				print(information.strip())
+		elif(line != "all"):
+			try:
+				find = commands.index(line)
+				print(commands[find+1])
+			except Exception as err:
+				print(self._e.no_command())
 		
 	
 	
