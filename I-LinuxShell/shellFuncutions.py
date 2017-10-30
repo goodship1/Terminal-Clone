@@ -97,6 +97,9 @@ class ShellOperations(cmd.Cmd ,object):
 				print(commands[find+1])
 			except Exception as err:
 				print(self._e.no_command())
+	
+	def do_cat(self,line):
+		pass
 		
 	
 	
