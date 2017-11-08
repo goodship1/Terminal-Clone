@@ -93,5 +93,4 @@ class InteractiveShell(cmd.Cmd,object):
 				try:
 					self.op.do_help(store[1])
 				except Exeption as  err:
-					err = "no command by that name"
-					print(err)
+					self.op.do_help(line)
