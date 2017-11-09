@@ -99,7 +99,12 @@ class ShellOperations(cmd.Cmd ,object):
 				print(self._e.no_command())
 	
 	def do_cat(self,line):
-		pass
+		if(line == None):
+			while(True):
+				user_cat = raw_input(">>")
+				print(user_cat)
+				if(user_cat == 'b'):
+					break
 		
 	
 	
