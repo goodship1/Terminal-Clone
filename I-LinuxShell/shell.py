@@ -29,7 +29,7 @@ class InteractiveShell(cmd.Cmd,object):
 		input_History = InMemoryHistory()
 		operators = ["+","-","*",'**','<',">"]
 		returnShellMethods = {"tod":self.op.do_tod()}
-		listofprintMethods = ["help","bll","h","cur","bdir","bl","sh",'wc','get','cwl','cdir','man']
+		listofprintMethods = ["meow","help","bll","h","cur","bdir","bl","sh",'wc','get','cwl','cdir','man']
 		linux_Commands = WordCompleter(listofprintMethods)
 		
 		
@@ -94,3 +94,5 @@ class InteractiveShell(cmd.Cmd,object):
 					self.op.do_help(store[1])
 				except Exeption as  err:
 					self.op.do_help(line)
+			if(enter_commands == "meow"):
+				self.do_cat(line)
