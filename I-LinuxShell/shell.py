@@ -67,32 +67,39 @@ class InteractiveShell(cmd.Cmd,object):
 				try:
 					self.op.do_show(store[1])
 				except Exception as err:
-					self.op.do_show("")	
+					self.op.do_show(line)	
 			if(store[0] == "wc") and(store[0] in listofprintMethods):
 				try:
 					self.op.do_cw(store[1])
 				except Exception as err:
-					self.op.do_cw("")
+					self.op.do_cw(line)
 			if(store[0] == 'get')and(store[0] in listofprintMethods):
 				try:
 					self.op.do_get(store[1])
 				except Exception as err:
-					self.op.do_get("")
+					self.op.do_get(line)
 
 			if(store[0] =="cwl") and(store[0] in listofprintMethods):
 				try:
 					self.op.do_cwl(store[1])
 				except Exception as err:
-					self.op.do_cwl("")
+					self.op.do_cwl(line)
 			if(store[0] == "cdir")and(store[0] in listofprintMethods):
 				try:
 					self.op.do_cdir(store[1])
 				except Exception as err:
-					self.op.do_cdir("")
-			if(store[0] == "help")and(store[0] in listofprintMethods):
+					self.op.do_cdir(line)
+			if(store[0] == "help") and(store[0] in listofprintMethods):
 				try:
 					self.op.do_help(store[1])
-				except Exeption as  err:
+				except Exception as err:
 					self.op.do_help(line)
-			if(enter_commands == "meow"):
-				self.do_cat(line)
+			if(store[0] == "meow")and(store[0] in listofprintMethods)and(len(store)==1):
+				try:
+					self.op.do_cat(line)
+				except Exception as err:
+					print(err)
+			if(store[0] == "meow") and(store[0] in listofprintMethods)and(len(store)>1):
+				self.op.do_cat(store)
+
+			
