@@ -23,6 +23,8 @@ class Errors(Exception):
 	def no_package(self):
 		return "no package of the name"
 	
-	def no_command_found(self):
-		return "no command found"
+	def no_command(self):
+		return "no command of that name"
 	
+	def not_catable(self):
+		return "cannot cat that information"
