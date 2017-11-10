@@ -99,12 +99,23 @@ class ShellOperations(cmd.Cmd ,object):
 				print(self._e.no_command())
 	
 	def do_cat(self,line):
-		if(line == None):
+		cats = []
+		if(line == ""):
 			while(True):
 				user_cat = raw_input(">>")
-				print(user_cat)
 				if(user_cat == 'b'):
 					break
+		if(">" in line):
+			try:
+			 line[2] = cats
+				while(True):
+					user_cat = raw_input(">>")
+					line[2].append(user_cat)
+					if(user_cat == "b"):
+						break
+			except Exception as err:
+				print(self._e.not_catable())
+				
 		
 	
 	
