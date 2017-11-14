@@ -12,5 +12,6 @@ bdir: Goes backwards in working directory
 wc: Counts the words of a file : cw test.txt
 cwl: Counts the lines of a file : cwl test.txt
 sh : Shows the contents of a file : sh test.txt
+meow: cats files to the standard input
 
 
