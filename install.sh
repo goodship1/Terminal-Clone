@@ -1,3 +1,3 @@
 
 sudo apt-get install python-prompt-toolkit
-python main.py
+python i-linux/I-LinuxShell/main.py
