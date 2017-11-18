@@ -100,6 +100,7 @@ class ShellOperations(cmd.Cmd ,object):
 	
 	def do_cat(self,line):
 		cats = []
+		exec("x = 1")
 		if(line == ""):
 			while(True):
 				user_cat = raw_input(">>")
@@ -108,14 +109,14 @@ class ShellOperations(cmd.Cmd ,object):
 		if(">" in line):
 			try:
 			 line[2] = cats
-				while(True):
-					user_cat = raw_input(">>")
-					line[2].append(user_cat)
-					if(user_cat == "b"):
-						break
+			 while(True):
+				 user_cat = raw_input(">>")
+				 line[2].append(user_cat)
+				 if(user_cat == "b"):
+					 break
 			except Exception as err:
 				print(self._e.not_catable())
-				
+		
 		
 	
 	

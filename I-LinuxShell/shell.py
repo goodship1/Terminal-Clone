@@ -21,7 +21,6 @@ class InteractiveShell(cmd.Cmd,object):
 
 	def interactive(self):
 		""" interactive shell"""
-		variables = dict()
 		self.op = ShellOperations()
 		self.bindings = KeyBindings() 
 		line = ""

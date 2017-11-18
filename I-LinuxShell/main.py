@@ -23,7 +23,7 @@
 #  
 from shell import InteractiveShell
 
-def main(args):
+def main():
     In = InteractiveShell()
 
 if __name__ == '__main__':
