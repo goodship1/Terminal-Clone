@@ -99,25 +99,27 @@ class ShellOperations(cmd.Cmd ,object):
 				print(self._e.no_command())
 	
 	def do_cat(self,line):
-		cats = []
-		exec("x = 1")
+		self.cats = {}
+		self.arguments = []
 		if(line == ""):
 			while(True):
 				user_cat = raw_input(">>")
 				if(user_cat == 'b'):
 					break
-		if(">" in line):
-			try:
-			 line[2] = cats
-			 while(True):
-				 user_cat = raw_input(">>")
-				 line[2].append(user_cat)
-				 if(user_cat == "b"):
-					 break
-			except Exception as err:
-				print(self._e.not_catable())
+		if(line != "")and(">" in line):
+			while(True):
+				user_cat = raw_input(">>")
+				self.arguments.append(user_cat)
+				if(user_cat == 'b'):
+					break
+			self.arguments.remove('b')
+			return "%s = %s"%(line[2],self.arguments)
+				
+	
+					
+			
 		
-		
+					 
 	
 	
 	def do_h(self,line):
