@@ -1,4 +1,5 @@
 class Errors(Exception):
+	
 	def not_file(self):
 		return "not a file"
 	
@@ -11,8 +12,6 @@ class Errors(Exception):
 	def end_of_directory(self):
 		return "end of the file directory"
 	
-	def colour_not_found(self):
-		return "colour not found"
 	
 	def empty_line(self):
 		return "cannot take a empty line"

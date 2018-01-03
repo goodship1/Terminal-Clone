@@ -42,14 +42,15 @@ class ShellOperations(cmd.Cmd ,object):
 			try:
 				raise Exception(self.e.empty_line())
 			except Exception as err:
-				return self.e.empty_line()
-				return True
+				return (self.e.empty_line(),True)
+				
 		elif(line in files)and(os.getcwd()!=line):
 				while(True):
 					self.do_bdir(line)#call to do_bdir(line)
 					if(line==line):
 						return line
 						break
+		
 		elif(line not in files):
 			try:
 				os.chdir(line)#change file directory

@@ -21,14 +21,10 @@ def testingcheckifFile():
 def testingreturnofdo_cw():
 	assert shell.do_cw('test.txt') == 3
 
-def testingErrorhandlingofdo_cw():
-	assert shell.do_cw('wgwgfwgg')=="not a file"
 
 def testingdo_show():
 	assert shell.do_show('test.txt') == True
 
-def testingdo_showErrorHandling():
-	assert shell.do_show('adadada') == "not a file"
 
 def testingofdo_cur():
 	current = os.getcwd()
@@ -37,9 +33,7 @@ def testingofdo_cur():
 def testingDo_h():
 	assert shell.do_h(line="")==True
 
-def testingdo_geterrorHandling(line = ""):
-	#testing when line is empty
-	assert shell.do_get(line) ==  "cannot take a empty line"
+
 
 def testingdo_get(line = 'update'):
 	#testing do_ get update
@@ -53,9 +47,6 @@ def testingdo_bl():
 	files = os.listdir(os.getcwd())
 	assert files == shell.do_bl(line ="")
 
-def testingdo_cdir(line = ""):
-	#testing do_cdir with empty line 
-	#should return error handling
-	assert shell.do_cdir(line) ==  "cannot take a empty line"
+
 
 
