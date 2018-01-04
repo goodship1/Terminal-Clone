@@ -18,24 +18,24 @@ def testingformatCurrentWorkingDirectory():
 def testingcheckifFile():
 	assert shell.checkIfFile('test.txt')==True
 
-def testingreturnofdo_cw():
+def testingreturnof_do_cw():
 	assert shell.do_cw('test.txt') == 3
 
 
-def testingdo_show():
+def testing_do_show():
 	assert shell.do_show('test.txt') == True
 
 
-def testingofdo_cur():
+def testingof_do_cur():
 	current = os.getcwd()
 	assert current ==  shell.do_cur(line='')
 
-def testingDo_h():
+def testing_Do_h():
 	assert shell.do_h(line="")==True
 
 
 
-def testingdo_get(line = 'update'):
+def testing_do_get(line = 'update'):
 	#testing do_ get update
 	assert shell.do_get(line)==True
 
@@ -43,9 +43,12 @@ def testingdo_get(line = "python"):
 	#testing if we can find another package 
 	assert shell.do_get(line)==True
 
-def testingdo_bl():
+def testing_do_bl():
 	files = os.listdir(os.getcwd())
 	assert files == shell.do_bl(line ="")
+
+def testing_do_cat():
+	pass
 
 
 

@@ -46,4 +46,8 @@ def not_file_testing():
 	assert shell.do_show(File) == error.not_file()
 
 
+def empty_line_testing_for_do_cw():
+	#testing of empty line error handling for  do_show
+	assert shell.do_show(line) == error.not_file()
+
 

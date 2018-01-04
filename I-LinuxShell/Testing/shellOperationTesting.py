@@ -178,7 +178,26 @@ class ShellOperations(cmd.Cmd ,object):
 			except Exception as err:#catch error
 				return self._e.not_file()#prints error in terminal
 	
-
+	
+	def do_cat(self,line):
+                self.cats = {}
+                self.arguments = []
+                if(line == ""):
+                        while(True):
+                                user_cat = raw_input(">>")
+                                if(user_cat == 'b'):
+										return True
+										break
+                if(line != "")and(">" in line):
+                        while(True):
+                                user_cat = raw_input(">>")
+                                self.arguments.append(user_cat)
+                                if(user_cat == 'b'):
+                                        break
+                        self.arguments.remove('b')
+                        return "%s = %s"%(line[2],self.arguments)
+	
+	
 	
 	def do_bdir(self,line):
 		"""bdir moves back one directory"""
