@@ -10,6 +10,7 @@ def testingchecklineisEmpty():
 
 	
 def testingformatCurrentWorkingDirectory():
+	#testing of format current working directory
 	Files = os.getcwd()
 	Files = Files.split('/')
 	Files.remove(Files[0])
@@ -44,6 +45,7 @@ def testingdo_get(line = "python"):
 	assert shell.do_get(line)==True
 
 def testing_do_bl():
+	#testing of do_bl
 	files = os.listdir(os.getcwd())
 	assert files == shell.do_bl(line ="")
 
