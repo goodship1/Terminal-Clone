@@ -6,15 +6,23 @@ Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic S
 ![alt-text](https://user-images.githubusercontent.com/10147276/34583359-6b8c72f8-f18f-11e7-90da-560dc3c76cb5.gif)
 
 
+
+#Key-Bindings
+
+
+
+
 # TO-DO
 
-- [ ] finsh testing
-- [ ] fix do_meow evaluation
-- [ ] add feature to allow user to add customer key-bindings
+- [ ] Finsh testing of Shell Opeartions.
+- [ ] Fix do_meow evaluation.
+- [ ] Add feature to allow user to add custom Key-Bindings.
+- [ ] Add feature to allow text hightling and copy and paste
 
 
 
 
 
+#How To Install
 
 
