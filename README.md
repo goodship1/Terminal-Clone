@@ -8,9 +8,9 @@ Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic S
 
 # TO-DO
 
--[] finsh testing
--[] fix do_meow evaluation
--[] add feature to allow user to add customer key-bindings
+- [ ] finsh testing
+- [ ] fix do_meow evaluation
+- [ ] add feature to allow user to add customer key-bindings
 
 
 
