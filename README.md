@@ -8,7 +8,7 @@ Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic S
 
 # Commands
 
-
+![alt-text](https://user-images.githubusercontent.com/10147276/34612536-3cb17760-f222-11e7-804e-1aa5575efe95.gif)
 
 # Key-Bindings
 
@@ -20,7 +20,7 @@ Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic S
 
 - Control-S : Short cut for show File
 
--
+
 
 
 
