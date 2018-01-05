@@ -12,6 +12,17 @@ Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic S
 
 # Key-Bindings
 
+- Control-E : Exit
+
+- Control-C :  Short cut for current working Directory
+
+- Control-D : Short cut for change current working Directory
+
+- Control-S : Short cut for show File
+
+-
+
+
 
 
 
