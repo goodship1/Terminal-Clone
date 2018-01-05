@@ -39,6 +39,6 @@ Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic S
 
 # How To Install
 
-- 1 Clone Repo : https://github.com/goodship1/i-linux.git
-- 2 Change Directory to I-LinuxShell
-- 3 Run Install.sh
+-  Clone Repo : https://github.com/goodship1/i-linux.git
+-  Change Directory to I-LinuxShell
+-  Run Install.sh
