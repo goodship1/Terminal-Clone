@@ -29,7 +29,7 @@ Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic S
 # TO-DO
 
 - [x] Finsh testing of Shell Opeartions.
-- [ ] Fix do_meow evaluation.
+- [x] Fix do_meow evaluation.
 - [ ] Add feature to allow user to add custom Key-Bindings.
 - [ ] Add feature to allow text hightling and copy and paste
 - [ ] Add feature for copy and paste and drop down menu
