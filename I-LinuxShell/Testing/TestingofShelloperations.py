@@ -49,6 +49,12 @@ def testing_do_bl():
 	files = os.listdir(os.getcwd())
 	assert files == shell.do_bl(line ="")
 
+def testing_do_move():
+	pass
+
+def testing_do_copy():
+	pass
+
 def testing_do_cat():
 	pass
 
