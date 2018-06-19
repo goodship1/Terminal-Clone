@@ -32,7 +32,13 @@ class ShellOperations(cmd.Cmd ,object):
 		files = files.split('/')
 		files.remove(files[0])
 		return files
-		
+	
+	def do_move(self,line):
+		pass
+	
+	def do_copy(self,line):
+		pass
+	
 	def do_cdir(self,line):
 		""" cdir changes the file directory"""
 		files = self._formattingCurrentWorkingDirectory()
