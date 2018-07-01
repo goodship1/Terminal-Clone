@@ -27,3 +27,9 @@ class Errors(Exception):
 	
 	def not_catable(self):
 		return "cannot cat that information"
+	
+	def move_failed(self):
+		return "cannot move file"
+	
+	def copy_failed(self):
+		return "cannot copy file"
