@@ -1,6 +1,3 @@
-
-
-
 bl : Basic list command which shows the contents of the current working directory
 bll: Basic long list command whihc shows the contents of the current working directory with files permissions
 cur: Shows the current working directory
