@@ -21,11 +21,11 @@ class InteractiveShell(cmd.Cmd,object):
 
 	def interactive(self):
 		""" interactive shell"""
-		self.op = ShellOperations()
+		self.op = ShellOperations()#invokes shell opertions 
 		self.bindings = KeyBindings()
 		cat_Storage = []
 		line = ""
-		self.toolBar = ToolBar()
+		self.toolBar = ToolBar()#creates tool bar 
 		input_History = InMemoryHistory()
 		operators = ["+","-","*",'**','<',">"]
 		returnShellMethods = {"tod":self.op.do_tod()}
@@ -98,14 +98,10 @@ class InteractiveShell(cmd.Cmd,object):
 			if(store[0] == "meow")and(store[0] in listofprintMethods):
 				if(len(store)==1):
 					self.op.do_cat(line)
-				
 				if(len(store)==2):
 					if(do_cat_return[0] in dir()):
 						for cat_evaluation in eval(do_cat_return[0]):
 									print(cat_evaluation)
-									
-								
-						
 			if(store[0] == "meow") and(store[0] in listofprintMethods)and(len(store)==3):
 				do_cat_return = self.op.do_cat(store)
 				exec(str(do_cat_return))
