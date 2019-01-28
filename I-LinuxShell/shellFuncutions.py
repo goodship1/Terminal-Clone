@@ -39,6 +39,9 @@ class ShellOperations(cmd.Cmd ,object):
 	def do_copy(self,line):
 		pass
 	
+	def do_alias(self,line):
+		pass
+	
 	def do_cdir(self,line):
 		""" cdir changes the file directory"""
 		files = self._formattingCurrentWorkingDirectory()
