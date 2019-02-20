@@ -16,7 +16,7 @@ class InteractiveShell(cmd.Cmd,object):
 		self.interactive()
 
 	def get_title(self):
-		return "i-linux"
+		return "Shell"
 
 
 	def interactive(self):
