@@ -1,4 +1,4 @@
-# I-linux
+# SHELL
 Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic Shell Funcutionality.
 
 # Demonstration
@@ -24,17 +24,6 @@ Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic S
 
 
 
-
-
-# TO-DO
-
-- [x] Finsh testing of Shell Opeartions.
-- [x] Fix do_meow evaluation.
-- [ ] Add feature to allow user to add custom Key-Bindings.
-- [ ] Add feature to allow text highlighting and copy and paste
-- [ ] Add feature for copy and paste and drop down menu
-- [ ] Add feature to Allow piping of expression.
-- [ ] Add parser to process commands
 
 
 
