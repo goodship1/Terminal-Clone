@@ -1,5 +1,5 @@
-# SHELL
-Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic Shell Funcutionality.
+# Terminal Clone
+Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic Shell Funcutionality developed using the prompt-toolkit framework
 
 # Demonstration
 
