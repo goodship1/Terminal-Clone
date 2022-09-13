@@ -1,14 +1,6 @@
 # Terminal Clone
-Basic interactive Linux Shell implemented with prompt-toolkit. Which has Basic Shell Funcutionality developed using the prompt-toolkit framework
+Basic interactive Shell implemented with prompt-toolkit. Which has Basic Shell Funcutionality developed using the prompt-toolkit framework
 
-# Demonstration
-
-![alt-text](https://user-images.githubusercontent.com/10147276/34583359-6b8c72f8-f18f-11e7-90da-560dc3c76cb5.gif)
-
-
-# Commands
-
-![alt-text](https://user-images.githubusercontent.com/10147276/34612536-3cb17760-f222-11e7-804e-1aa5575efe95.gif)
 
 # Key-Bindings
 
